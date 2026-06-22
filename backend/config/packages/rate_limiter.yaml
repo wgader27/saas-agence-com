@@ -1,0 +1,13 @@
+framework:
+    rate_limiter:
+        # Limiter les tentatives de connexion : 5 par 15 minutes par IP
+        login_ip:
+            policy: sliding_window
+            limit: 5
+            interval: '15 minutes'
+
+        # Limiter par compte : 10 par 15 minutes par email
+        login_account:
+            policy: sliding_window
+            limit: 10
+            interval: '15 minutes'

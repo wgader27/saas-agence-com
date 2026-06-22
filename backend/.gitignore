@@ -1,0 +1,45 @@
+# ── Symfony framework ───────────────────────────────────────
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+# ── Base de données (SENSIBLE — contient les accès clients) ─
+/var/data_dev.db
+/var/data_dev.db-shm
+/var/data_dev.db-wal
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Fichiers uploadés (pas dans git — trop lourds + privés) ─
+/var/uploads/
+/var/tmp/
+/var/sessions/
+
+# ── Cache Symfony ────────────────────────────────────────────
+/var/cache/
+/var/log/
+
+# ── Adminer (outil admin — ne pas commiter, re-télécharger) ─
+/public/adminer.php
+/public/adminer-*.php
+
+# ── Build frontend (généré par npm run build) ───────────────
+/public/app/
+
+# ── PHP ──────────────────────────────────────────────────────
+*.phpunit.result.cache
+.phpunit.cache/
+/.phpunit.cache/
+phpunit.xml
+/phpcs.xml
+
+# ── Composer ────────────────────────────────────────────────
+/vendor/
+composer.phar

@@ -1,0 +1,19 @@
+# see https://symfony.com/doc/current/reference/configuration/framework.html
+framework:
+    secret: '%env(APP_SECRET)%'
+
+    session:
+        cookie_lifetime: 2592000      # 30 jours — reste connecté après fermeture du navigateur
+        gc_maxlifetime: 2592000
+        cookie_secure: false          # false en dev (HTTP)
+        cookie_samesite: strict
+        save_path: '%kernel.project_dir%/var/sessions'
+
+    #esi: true
+    #fragments: true
+
+when@test:
+    framework:
+        test: true
+        session:
+            storage_factory_id: session.storage.factory.mock_file

@@ -1,0 +1,48 @@
+nelmio_security:
+    # X-Frame-Options : empêche le framing (clickjacking)
+    clickjacking:
+        paths:
+            '^/.*': DENY
+
+    # X-Content-Type-Options
+    content_type:
+        nosniff: true
+
+    # Referrer-Policy
+    referrer_policy:
+        enabled: true
+        policies:
+            - 'no-referrer'
+            - 'strict-origin-when-cross-origin'
+
+    # Content-Security-Policy
+    csp:
+        hosts: []
+        content_types: []
+        report_logger_service: logger
+        enforce:
+            default-src:
+                - 'self'
+            script-src:
+                - 'self'
+                - 'unsafe-inline'    # Nécessaire pour Vite HMR en dev — retirer en prod
+            style-src:
+                - 'self'
+                - 'unsafe-inline'
+                - 'fonts.googleapis.com'
+            font-src:
+                - 'self'
+                - 'fonts.gstatic.com'
+            img-src:
+                - 'self'
+                - 'data:'
+                - 'www.google.com'   # Favicons Google S2
+                - 'api.qrserver.com' # QR Code API
+            connect-src:
+                - 'self'
+            frame-ancestors:
+                - 'none'
+            object-src:
+                - 'none'
+            base-uri:
+                - 'self'
